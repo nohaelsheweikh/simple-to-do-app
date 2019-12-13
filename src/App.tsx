@@ -21,25 +21,26 @@ const App = () => {
                         <Route path = "/login"
                         render={() => (
                             localStorage.jwtToken ? (
-                                 <Redirect to="/main"/>
+                                 <Redirect to="/profile"/>
                              ) : (
                                  <Login />
                              ) )}/>   
-                        <Route path = "/main" render={() => (
+                       
+                         <Route path = "/profile" render={() => (
+                        !localStorage.jwtToken ? (
+                            <Redirect to="/login"/>
+                        ) : (
+                            <Profile />
+                        ) )}/>   
+                         <Route path = "/main" render={() => (
                        !localStorage.jwtToken ? (
                             <Redirect to="/login"/>
                         ) : (
                             <Main />
                         ) )}/>   
-                         <Route path = "/profile" render={() => (
-                       !localStorage.jwtToken ? (
-                            <Redirect to="/login"/>
-                        ) : (
-                            <Profile />
-                        ) )}/>   
                     </Switch>
                 </Suspense>
-                <Redirect exact from="/" to="profile" />
+                <Redirect exact from="/" to="login" />
             </Router>
     )
 };
