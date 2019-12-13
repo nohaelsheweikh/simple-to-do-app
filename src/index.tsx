@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+import {Provider} from 'react-redux';
+
+import history from './utils/history';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import App from './App';
+import configureStore from './store/configureStore';
+import { setCurrentUser } from './actions/authActions';
+import jwt from 'jsonwebtoken'
+import reducers from './reducers/index'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
+const store = configureStore(reducers,history);
+console.log('localStorage',localStorage.jwtToken)
+if(localStorage.jwtToken){
+
+    store.dispatch(setCurrentUser(jwt.decode(localStorage.jwtToken)))
+
+}
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.querySelector('#root')
+);
 serviceWorker.unregister();
