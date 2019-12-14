@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import  {fetchTasks} from "../../actions/tasksActions";
+import  {fetchTasks,deleteTask} from "../../actions/tasksActions";
 import Header from "../Header"
 import Main from "./TaskCard"
 interface MyProps {
     fetchTasks: () => void;
+    deleteTask:(task:any)=>void
     tasks:any
 }
 
@@ -22,6 +23,7 @@ class TasksList extends React.Component<MyProps> {
                 <Header/>
                 <Main
                  tasksList={this.props.tasks}
+                 deleteTask={this.props.deleteTask}
                 />
 
                
@@ -35,6 +37,7 @@ const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
 });
 const dispatchProps = {
     fetchTasks:fetchTasks,
+    deleteTask:deleteTask
   };
   
 export default connect(

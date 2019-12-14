@@ -21,27 +21,41 @@ export function isLoading(isLoading: boolean) {
       },
       "task_name":details
    }
-   console.log('jsonData',jsonData)
     return async(dispatch:any) => {
       const response = await axios.post( 'http://localhost:3001/data',jsonData) 
-      console.log('data',response)
       if(response.status === 201){
         dispatch({
           type:ActionTypes.CREATE_TASKS_SUCCESS, 
         });
-      dispatch(isLoading(false));
       history.push('/main')
-   }else{
+    }else{
       dispatch({
           type:ActionTypes.CREATE_TASKS_HAS_ERROR,
           payload: "creating error"
       });
-      dispatch(isLoading(false));
    }
   }
   
   }
+  export const deleteTask = (id:any) => {  
 
+    return async(dispatch:any) => {
+        const response = await axios.delete( `http://localhost:3001/data/${id}`,id) 
+        console.log('data',response)
+        if(response.status === 200){
+        dispatch({
+            type:ActionTypes.DELETE_TASKS_SUCCESS,
+           
+        });
+        dispatch(fetchTasks())
+     }else{
+        dispatch({
+            type:ActionTypes.DELETE_TASKS_HAS_ERROR,
+            payload: "deleting error"
+        });
+     }
+    }
+};
   export const fetchTasks = () => {  
     return async(dispatch:any) => {
         dispatch(isLoading(true));

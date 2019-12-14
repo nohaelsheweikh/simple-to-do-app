@@ -15,18 +15,11 @@
       "task_name": "dev"
     },
     {
-      "id": 3,
+      "id": 1576341569173.5618,
       "category": {
-        "name": "shopping"
+        "name": "Shopping"
       },
-      "task_name": "milk"
-    },
-    {
-      "id": 1576339087057.954,
-      "category": {
-        "name": "new"
-      },
-      "task_name": "new"
+      "task_name": "Milk,Eggs"
     }
   ]
 }

@@ -1,6 +1,9 @@
 import React from "react";
 import * as styles from "../../styles/card"
-import {CreateTaskButton,CreateTaskButtonWrapper,Container} from "../../styles/tasks"
+import {
+  CreateTaskButton,
+  CreateTaskButtonWrapper,
+  Container,DeleteTaskButton,DeleteWrapper} from "../../styles/tasks"
 import history from "../../utils/history"
 
 const Card = (props:any) =>{
@@ -19,6 +22,9 @@ const Card = (props:any) =>{
           <styles.Wrapper key={index} >
             <styles.Title>{task.category.name}</styles.Title>
             <styles.Description>{task.task_name}</styles.Description>
+            <DeleteWrapper>
+             <DeleteTaskButton onClick={() => props.deleteTask(task.id)}>Delete Task</DeleteTaskButton>
+            </DeleteWrapper>
           </styles.Wrapper>
      
        )})}
