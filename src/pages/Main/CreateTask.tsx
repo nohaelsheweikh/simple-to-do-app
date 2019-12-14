@@ -4,7 +4,7 @@ import  {handleCreateTask} from "../../actions/tasksActions";
 import CreateForm from './CreateForm'
 
  interface MyProps {
-    handleCreateTask: (category:string,details:Text) => void;
+    handleCreateTask: (category:string,details:Text) => Promise<any> ;
 }
 
 interface state {

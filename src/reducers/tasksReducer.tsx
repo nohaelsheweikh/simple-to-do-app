@@ -17,7 +17,6 @@ export default (state = INITIAL_STATE, action:any) => {
                     ...state,      
                      tasks: action.payload
                 };
-    
         default:
             return state;
     }

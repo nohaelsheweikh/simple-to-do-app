@@ -1,5 +1,5 @@
 import * as ActionTypes from "../constants/tasks";
-// import history from "../utils/history"
+import history from "../utils/history"
 import axios from 'axios'
 
 
@@ -12,8 +12,10 @@ export function isLoading(isLoading: boolean) {
 
 
   export const handleCreateTask = (category:string,details:Text) => {
+      let id = Date.now() + Math.random()
 
     let jsonData={
+      "id":id,
       "category":{
          "name":category
       },
@@ -21,27 +23,29 @@ export function isLoading(isLoading: boolean) {
    }
    console.log('jsonData',jsonData)
     return async(dispatch:any) => {
-     let Data = JSON.stringify(jsonData)
-      let res = await  axios.post('http://localhost:3000/data.json',Data, {
-        headers: {
-          'Content-Type': 'application/json;charset=UTF-8',
-          "Access-Control-Allow-Origin": "*",
-        }
-      })
-     
+      const response = await axios.post( 'http://localhost:3001/data',jsonData) 
+      console.log('data',response)
+      if(response.status === 201){
+        dispatch({
+          type:ActionTypes.CREATE_TASKS_SUCCESS, 
+        });
+      dispatch(isLoading(false));
+      history.push('/main')
+   }else{
+      dispatch({
+          type:ActionTypes.CREATE_TASKS_HAS_ERROR,
+          payload: "creating error"
+      });
+      dispatch(isLoading(false));
+   }
+  }
   
-  
-    dispatch({
-      type:ActionTypes.CREATE_TASKS_SUCCESS,
-      payload:res
-    });
-    }
   }
 
   export const fetchTasks = () => {  
     return async(dispatch:any) => {
         dispatch(isLoading(true));
-        const response = await axios.get('data.json') 
+        const response = await axios.get( 'http://localhost:3001/data') 
         console.log('data',response)
         if(response.status === 200){
         dispatch({
