@@ -7,8 +7,8 @@ const LoginForm = (props:any) => {
         <form onSubmit={props.onSubmit}>
           <StyledLogin>
              <h2>Login</h2>
-            <StyledInput type="text" placeholder="text" onChange={props.onChange} name="username"/>
-            <StyledInput type="password" placeholder="password" onChange={props.onChange} name="password" />
+            <StyledInput type="text" placeholder="Username" onChange={props.onChange} name="username"/>
+            <StyledInput type="password" placeholder="Password" onChange={props.onChange} name="password" />
             <StyledButton>Login</StyledButton>
           </StyledLogin>
          </form>

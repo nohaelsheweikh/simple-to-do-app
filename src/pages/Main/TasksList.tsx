@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import  {fetchTasks} from "../../actions/tasks";
+import  {fetchTasks} from "../../actions/tasksActions";
 import Header from "../Header"
-import Main from "./Card"
+import Main from "./TaskCard"
 interface MyProps {
     fetchTasks: () => void;
     tasks:any
 }
 
 
-class MainPage extends React.Component<MyProps> {
+class TasksList extends React.Component<MyProps> {
 
    componentDidMount(){
        this.props.fetchTasks()
@@ -40,5 +40,5 @@ const dispatchProps = {
 export default connect(
     mapStateToProps,
     dispatchProps
-)(MainPage)
+)(TasksList)
 

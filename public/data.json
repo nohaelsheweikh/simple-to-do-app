@@ -1,14 +1,12 @@
 [
    {
-      "Category":{
-         "id":1,
+      "category":{
          "name":"sport"
       },
       "task_name":"tennis"
    },
    {
-      "Category":{
-         "id":2,
+      "category":{
          "name":"work"
       },
       "task_name":"dev"

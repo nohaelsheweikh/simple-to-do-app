@@ -33,15 +33,17 @@ export const login =  (
  username: string,password:string)=> (dispatch:any) => {
         console.log('clicked')
         if(username=='Admin'&&password=='54321'){
-            // let user={  
-            //     "email": "admin@gmail.com",
-            //     "first_name": "Admin",
-            //     "phone":"54317899"
-            // }
+            let user={  
+                "email": "admin@gmail.com",
+                "username": "Admin",
+                "phone":"54317899",
+                "age":"29",
+                "hobbies":"Tennis,Videogames,Reading"
+            }
             const token:any = 'sdfghj456fgh657ghj567yuh67yughh6g'
 
             localStorage.setItem('jwtToken',token);
-            localStorage.setItem('User', username);
+            localStorage.setItem('User',JSON.stringify(user));
             dispatch ({
               type:LOGIN_SUCCESS,
               payload: username

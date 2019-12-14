@@ -1,18 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import  {login} from "../../actions/authActions";
-import LoginForm from './LoginForm'
+import  {handleCreateTask} from "../../actions/tasksActions";
+import CreateForm from './CreateForm'
 
  interface MyProps {
-    login: (username:string,password:string) => void;
+    handleCreateTask: (category:string,details:Text) => void;
 }
 
 interface state {
-    username: string;
-    password: string;
+    category: string;
+    details: Text;
    
 }
 class LoginPage extends React.Component<MyProps,state> {
+   
+
+   componentDidMount(){
+       console.log('mounted')
+   }
+   
+
     onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         this.setState({
             ...this.state,
@@ -22,18 +29,17 @@ class LoginPage extends React.Component<MyProps,state> {
    
     onSubmit  = (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault();
-
-       this.props.login(this.state.username, this.state.password);
+        
+       this.props.handleCreateTask(this.state.category, this.state.details);
 
     };
 
     render() {
         return (
             <div>
-                <LoginForm
+                <CreateForm
                     onSubmit={this.onSubmit}
-                    onChange={this.onChange} 
-                   
+                    onChange={this.onChange}      
                 />   
             </div>
      )}
@@ -45,7 +51,7 @@ const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
     error: state.error
 });
 const dispatchProps = {
-    login: login,
+    handleCreateTask: handleCreateTask,
   };
   
 export default connect(

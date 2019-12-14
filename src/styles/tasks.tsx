@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  display: flex;
+  display:block;
   align-items: center;
 `
 export const CardContainer = styled.div`
@@ -20,10 +20,24 @@ display: flex;
 `
 
 
-export const CardMeta = styled.div`
-width: 33.333%;
+
+export const CreateTaskButtonWrapper = styled.div`
+padding:3%
 `
 
+export const CreateTaskButton = styled.div`
+  background-color: transparent;
+  border: 1px solid #dbdbdb;
+  color: #262626;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 5px 9px;
+  text-transform: capitalize;
+  font-size: 14px;
+  margin-left: 20px;
+  width:100px
+`;
 export const CardBody = styled.img`
 cursor: pointer;
 width: 33%;

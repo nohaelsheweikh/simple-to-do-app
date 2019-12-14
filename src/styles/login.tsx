@@ -48,6 +48,26 @@ export const StyledInput= styled.input`
     text-align: left;
   }
 `
+export const StyledTextArea= styled.textarea`
+  font-size: 16px;
+  border: solid 1px #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
+  width:80%
+  margin:2%
+  padding: 9px 33px;
+  border-radius: 3px;
+  color: #999;
+  cursor: text;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  background: #fafafa;
+  &:active,
+  &:focus {
+    text-align: left;
+  }
+`
 export const StyledButton = styled.button`
   cursor: pointer;
   background: transparent;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const CardContainer = styled.div`
     display:flex
 `
 export const Title = styled.h1`
