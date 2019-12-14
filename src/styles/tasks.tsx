@@ -48,7 +48,7 @@ export const DeleteTaskButton = styled.div`
   width:100px
 `;
 export const CreateTaskButton = styled.div`
-  background-color: #33b5e5;
+  background-color: #0088CC;
   text-align:center
   border: 1px solid #dbdbdb;
   color: #FFFFFF;

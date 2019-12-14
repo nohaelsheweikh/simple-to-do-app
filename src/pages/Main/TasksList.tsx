@@ -18,16 +18,12 @@ class TasksList extends React.Component<MyProps> {
     render() {
        
         return (
-
             <>
-                <Header/>
-                <Main
-                 tasksList={this.props.tasks}
-                 deleteTask={this.props.deleteTask}
+            <Header/>
+                 <Main
+                    tasksList={this.props.tasks}
+                    deleteTask={this.props.deleteTask}
                 />
-
-               
-          
             </>
      )}
 

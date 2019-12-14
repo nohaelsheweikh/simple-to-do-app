@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-    display:flex
+display: flex;
+flex-wrap: wrap;
 `
 export const Title = styled.h1`
   font-size: 2rem;
