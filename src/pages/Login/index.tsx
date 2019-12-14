@@ -2,14 +2,17 @@ import React from 'react';
 import {connect} from 'react-redux';
 import  {login} from "../../actions/authActions";
 import LoginForm from './LoginForm'
+import {StyledError} from '../../styles/login'
 
  interface MyProps {
     login: (username:string,password:string) => void;
+    error:string
 }
 
 interface state {
     username: string;
     password: string;
+    
    
 }
 class LoginPage extends React.Component<MyProps,state> {
@@ -35,14 +38,14 @@ class LoginPage extends React.Component<MyProps,state> {
                     onChange={this.onChange} 
                    
                 />   
+                <StyledError>{this.props.error}</StyledError>
             </div>
      )}
 
 }
 
 const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
-    isAuthenticated: state.isAuthenticated,
-    error: state.error
+    error: state.auth.error
 });
 const dispatchProps = {
     login: login,

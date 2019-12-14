@@ -1,5 +1,4 @@
 import * as ActionTypes from "../constants/profile";
-// import history from "../utils/history"
 
 
 export function isLoading(isLoading: boolean) {
@@ -18,7 +17,6 @@ export const fetchProfile = () => {
           
         if(response){
             let user =JSON.parse(response)
-            console.log('user',user)
 
         dispatch({
             type:ActionTypes.FETCH_USER_SUCCESS,

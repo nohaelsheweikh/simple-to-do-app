@@ -3,6 +3,10 @@ export const StyledContainer =styled.body`
     width: 100%;
     display:flex;
 `
+export const StyledError =styled.h4`
+   text-align:center;
+   color:#f32013;
+`
 export const StyledLogin = styled.div`
   margin:3%
   display: flex;
@@ -24,6 +28,7 @@ export const StyledLogin = styled.div`
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
   }
+  
 
   
 `;

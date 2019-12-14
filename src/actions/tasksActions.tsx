@@ -13,7 +13,6 @@ export function isLoading(isLoading: boolean) {
 
   export const handleCreateTask = (category:string,details:Text) => {
       let id = Date.now() + Math.random()
-
     let jsonData={
       "id":id,
       "category":{
@@ -37,11 +36,10 @@ export function isLoading(isLoading: boolean) {
   }
   
   }
-  export const deleteTask = (id:any) => {  
 
+  export const deleteTask = (id:any) => {  
     return async(dispatch:any) => {
         const response = await axios.delete( `http://localhost:3001/data/${id}`,id) 
-        console.log('data',response)
         if(response.status === 200){
         dispatch({
             type:ActionTypes.DELETE_TASKS_SUCCESS,
@@ -56,6 +54,7 @@ export function isLoading(isLoading: boolean) {
      }
     }
 };
+
   export const fetchTasks = () => {  
     return async(dispatch:any) => {
         dispatch(isLoading(true));

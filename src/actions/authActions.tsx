@@ -1,8 +1,7 @@
 import {
     LOGIN_FAIL,
     LOGIN_SUCCESS,
-    IS_AUTHANTICATED ,
-    SET_CURRENT_USER
+    SET_CURRENT_USER,
 } from "../constants/auth";
 import history from "../utils/history"
 import jwt from 'jsonwebtoken'
@@ -15,12 +14,6 @@ export function setCurrentUser(user: any) {
     };
   }
 
-export const isAuthanticated = (bool: any) => {
-    return {
-        type: typeof IS_AUTHANTICATED ,
-        isAuthanticated: bool
-    }
-  };
   export function logout() {
     return (dispatch:any) => {
       localStorage.removeItem('jwtToken');
@@ -52,9 +45,9 @@ export const login =  (
            history.push('/profile')
         }else{
             dispatch({
-                type: LOGIN_FAIL
+                type: LOGIN_FAIL,
+                payload:"Wrong Username or Password "
             });
-            isAuthanticated(false)
         }
             
    

@@ -1,5 +1,4 @@
 import { 
-    AUTH_ERROR,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
@@ -9,8 +8,8 @@ import isEmpty from 'lodash/isEmpty'
 import { fromJS } from 'immutable';
 
 const INITIAL_STATE =  fromJS({
-    isAuthenticated: null,
-    user: {}
+    user: {},
+    error:""
 });
 
 export default (state = INITIAL_STATE, action:any) => {
@@ -28,11 +27,11 @@ export default (state = INITIAL_STATE, action:any) => {
                 user:action.payload
             }
           
-
-        case AUTH_ERROR:
         case LOGIN_FAIL:
-        case LOGOUT_SUCCESS:
-       
+            return{
+                error:action.payload
+            }
+        case LOGOUT_SUCCESS: 
         default:
             return state;
     }
