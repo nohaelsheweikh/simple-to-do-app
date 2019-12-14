@@ -33,4 +33,8 @@ export const NavRight = styled.div`
 `;
 
 export const MenuLink = styled.a`
+  color: hotpink;
+  a:link 
+    text-decoration: none;
+  
 `;
