@@ -5,7 +5,7 @@
       "category": "Sport",
       "tasks": [
         {
-          "date": "dkjfsldf",
+          "date": "12-12-2019",
           "name": "go to the club"
         }
       ]
@@ -15,18 +15,18 @@
       "category": "Games",
       "tasks": [
         {
-          "date": "task 2",
+          "date": "14-12-2019",
           "name": "go to the gym"
         }
       ]
     },
     {
-      "id": 1576422503828.5156,
-      "category": "shopping",
+      "id": 1576433081104.26,
+      "category": "NEW",
       "tasks": [
         {
-          "date": "Sun Dec 15 2019 17:08:23 GMT+0200 (Eastern European Standard Time)",
-          "name": "new"
+          "date": "15-12-2019",
+          "name": "NEW"
         }
       ]
     }

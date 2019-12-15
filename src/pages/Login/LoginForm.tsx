@@ -10,6 +10,7 @@ const LoginForm = (props:any) => {
             <StyledInput type="text" placeholder="Username" onChange={props.onChange} name="username"/>
             <StyledInput type="password" placeholder="Password" onChange={props.onChange} name="password" />
             <StyledButton>Login</StyledButton>
+            
           </StyledLogin>
          </form>
          

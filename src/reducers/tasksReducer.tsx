@@ -17,6 +17,11 @@ export default (state = INITIAL_STATE, action:any) => {
                     ...state,      
                      tasks: action.payload
                 };
+                case ActionTypes.FETCH_TASKS_BY_DATE_SUCCESS:
+                return {
+                    ...state,      
+                     tasks: action.payload
+                };
         default:
             return state;
     }
