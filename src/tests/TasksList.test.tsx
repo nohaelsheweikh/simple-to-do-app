@@ -12,27 +12,29 @@ const mockStore = configureMockStore([thunk]);
 const store = mockStore({})
     
     const tasks =  [
+      
         {
           "id": 1,
-          "category": {
-            "name": "sport"
-          },
-          "task_name": "tennis"
+          "category": "Sport",
+          "tasks": [
+            {
+              "date": "dkjfsldf",
+              "name": "go to the club"
+            }
+          ]
         },
         {
-          "id": 2,
-          "category": {
-            "name": "work"
-          },
-          "task_name": "dev"
-        },
-        {
-          "id": 1576342806617.201,
-          "category": {
-            "name": "Shopping"
-          },
-          "task_name": "milk,eggs"
+          "id": 1,
+          "category": "Games",
+          "tasks": [
+            {
+              "date": "task 2",
+              "name": "go to the gym"
+            }
+          ]
         }
+        
+      
       ]
     
     describe('TaskCards component renders a list of Cards', () => {

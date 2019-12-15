@@ -1,10 +1,11 @@
 import React from "react";
 import * as styles from "../../styles/card"
-import {
-  CreateTaskButton,
-  CreateTaskButtonWrapper,
-  Container,DeleteTaskButton,DeleteWrapper} from "../../styles/tasks"
+import { Container, CardsListWrapper} from "../../styles/tasks"
 import history from "../../utils/history"
+import { IoMdTrash} from 'react-icons/io';
+import _ from 'lodash';
+
+  
 
 const TasksList = (props:any) =>{
   if(!props.tasksList){
@@ -12,23 +13,36 @@ const TasksList = (props:any) =>{
   }
   return (
     <Container>
-       <CreateTaskButtonWrapper>
-         <CreateTaskButton onClick={() => history.push('./main/create')}>Create Task</CreateTaskButton>
-      </CreateTaskButtonWrapper> 
-    <styles.CardContainer>  
-     {
-       props.tasksList.map((task:any, index:number) => {
-          return  (
-          <styles.Wrapper key={index} >
-            <styles.Title>{task.category.name}</styles.Title>
-            <styles.Description>{task.task_name}</styles.Description>
-            <DeleteWrapper>
-             <DeleteTaskButton onClick={() => props.deleteTask(task.id)}>Delete Task</DeleteTaskButton>
-            </DeleteWrapper>
-          </styles.Wrapper>
-     
-       )})}
-    </styles.CardContainer>
+       <styles.CreateTaskButtonWrapper>
+         <styles.CreateTaskButton onClick={() => history.push('./create')}>Create Task</styles.CreateTaskButton>
+       </styles.CreateTaskButtonWrapper> 
+      <CardsListWrapper>
+        <styles.CardContainer>  
+        {
+         props.tasksList.map((task:any, index:number) => {
+              return  (
+              <styles.Card key={index} >
+            
+              <styles.DeleteTaskButton onClick={() => props.deleteTask(task.id)}>
+                  <IoMdTrash       
+                  />
+              </styles.DeleteTaskButton>
+                <styles.Title>{task.category}</styles.Title>
+                    {task.tasks.map((task:any, index:number) => {
+                  return(
+                      <>
+                        <styles.Date>{task.date}</styles.Date>
+                        <styles.Description>{task.name}</styles.Description>
+                      </>
+
+                    )}
+                  )}
+                
+              </styles.Card>
+        
+          )})}
+        </styles.CardContainer>
+      </CardsListWrapper>
   </Container>
   )
 };

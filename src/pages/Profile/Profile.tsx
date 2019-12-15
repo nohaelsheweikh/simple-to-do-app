@@ -27,25 +27,25 @@ class Profile extends React.Component<MyProps> {
                 <Header/>
                 <styles.ProfileContainer>
                     <styles.ProfileDetails>
-
                         <styles.ProfileDetailsLeft>
                             <styles.ProfileImage src="https://api.adorable.io/avatars/285/abott@adorable.png" />
                         </styles.ProfileDetailsLeft>
 
                         <styles.ProfileDetailsRight>
 
-                            <styles.ProfileDetailsUsername>
-                                <styles.HeadingThreeText>{this.props.user.email}</styles.HeadingThreeText>
-                            </styles.ProfileDetailsUsername>
-
-                        <styles.ProfileDetailsMeta>
-                            <styles.ParagraphText>
-                             <strong>{this.props.user.username}</strong> 
-                            </styles.ParagraphText>
-                            <styles.ParagraphText>
-                             <strong>{this.props.user.age}</strong> years olds
-                            </styles.ParagraphText>
-                        </styles.ProfileDetailsMeta>
+                            <styles.ProfileDetailsHeaders>
+                                <styles.HeadingThreeText>{this.props.user.username}</styles.HeadingThreeText>
+                            </styles.ProfileDetailsHeaders>
+                        
+                            <styles.ProfileDetailsHeaders>
+                                <styles.HeadingThreeText> 
+                                    <strong>{this.props.user.email}</strong> 
+                                </styles.HeadingThreeText>
+                            </styles.ProfileDetailsHeaders>
+                         
+                            <styles.ProfileDetailsHeaders>
+                                    <strong>{this.props.user.age} </strong> years olds
+                            </styles.ProfileDetailsHeaders>
 
                         <styles.ProfileDetailsName>
                             <styles.ParagraphText>

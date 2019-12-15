@@ -15,20 +15,20 @@ const App = () => {
             <Router history={history}>
                 <Suspense fallback={<div>Loading...</div>}>
                     <Switch>     
-                        <Route path = "/login" render={() => (
+                        <Route exact path = "/login" render={() => (
                             localStorage.jwtToken ? (
                                  <Redirect to="/profile"/>
                              ) : ( <Login />) )}/>   
                        
-                         <Route path = "/profile" render={() => (
+                         <Route exact path = "/profile" render={() => (
                             !localStorage.jwtToken ? (
                                 <Redirect to="/login"/>
                             ) : (<Profile /> ) )}/>   
-                         <Route exact path = "/main" render={() => (
+                         <Route exact path = "/" render={() => (
                             !localStorage.jwtToken ? (
                             <Redirect to="/login"/>)
                              : (  <Main />) )}/>  
-                         <Route exact path = "/main/create" render={() => (
+                         <Route exact path = "/create" render={() => (
                             !localStorage.jwtToken ? (
                             <Redirect to="/login"/>)
                              : (  <Create/>) )}/>   

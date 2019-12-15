@@ -2,26 +2,17 @@ import {
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
-    SET_CURRENT_USER 
 } from "../constants/auth";
-import isEmpty from 'lodash/isEmpty'
 import { fromJS } from 'immutable';
 
 const INITIAL_STATE =  fromJS({
-    user: {},
     error:""
 });
 
 export default (state = INITIAL_STATE, action:any) => {
     switch (action.type) {
         
-     case SET_CURRENT_USER :
-         return{
-             
-                isAuthenticated :!isEmpty(action.user),
-                    user:action.user
-                }
-           
+    
         case LOGIN_SUCCESS:
             return{
                 user:action.payload

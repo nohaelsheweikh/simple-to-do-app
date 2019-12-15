@@ -1,0 +1,20 @@
+image: node:6
+  stages:
+  - install
+  - test
+  - deploy
+prodInstall:
+  stage: install
+  script:
+    - npm install --production
+  artifacts:
+    untracked: true
+unitTesting:
+  stage: test
+  dependencies:
+    - prodInstall
+  script:
+    - npm install
+    - npm run build
+    - npm test
+  

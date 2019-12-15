@@ -1,5 +1,5 @@
 import React from "react";
-import {StyledLogin,StyledInput,StyledButton} from '../../styles/login'
+import {StyledLogin, StyledInput, StyledButton} from '../../styles/login'
 
 const LoginForm = (props:any) => {
   return (

@@ -17,25 +17,24 @@ exports[`TaskCards component renders a list of Cards renders correctly 1`] = `
     tasks={
       Array [
         Object {
-          "category": Object {
-            "name": "sport",
-          },
+          "category": "Sport",
           "id": 1,
-          "task_name": "tennis",
+          "tasks": Array [
+            Object {
+              "date": "dkjfsldf",
+              "name": "go to the club",
+            },
+          ],
         },
         Object {
-          "category": Object {
-            "name": "work",
-          },
-          "id": 2,
-          "task_name": "dev",
-        },
-        Object {
-          "category": Object {
-            "name": "Shopping",
-          },
-          "id": 1576342806617.201,
-          "task_name": "milk,eggs",
+          "category": "Games",
+          "id": 1,
+          "tasks": Array [
+            Object {
+              "date": "task 2",
+              "name": "go to the gym",
+            },
+          ],
         },
       ]
     }
@@ -44,52 +43,5 @@ exports[`TaskCards component renders a list of Cards renders correctly 1`] = `
       is loading
     </h4>
   </TasksList>
-</Provider>
-`;
-
-exports[`TasksList component renders a list of Cards renders correctly 1`] = `
-<Provider
-  store={
-    Object {
-      "clearActions": [Function],
-      "dispatch": [Function],
-      "getActions": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-    }
-  }
->
-  <Card
-    tasks={
-      Array [
-        Object {
-          "category": Object {
-            "name": "sport",
-          },
-          "id": 1,
-          "task_name": "tennis",
-        },
-        Object {
-          "category": Object {
-            "name": "work",
-          },
-          "id": 2,
-          "task_name": "dev",
-        },
-        Object {
-          "category": Object {
-            "name": "Shopping",
-          },
-          "id": 1576342806617.201,
-          "task_name": "milk,eggs",
-        },
-      ]
-    }
-  >
-    <h4>
-      is loading
-    </h4>
-  </Card>
 </Provider>
 `;

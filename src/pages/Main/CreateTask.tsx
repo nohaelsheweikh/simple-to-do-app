@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import  {handleCreateTask} from "../../actions/tasksActions";
 import CreateForm from './CreateForm'
+import Header from '../Header'
 
  interface MyProps {
     handleCreateTask: (category:string,details:Text) => Promise<any> ;
@@ -37,6 +38,7 @@ class LoginPage extends React.Component<MyProps,state> {
     render() {
         return (
             <div>
+                <Header/>
                 <CreateForm
                     onSubmit={this.onSubmit}
                     onChange={this.onChange}      

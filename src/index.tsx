@@ -8,8 +8,6 @@ import * as serviceWorker from './serviceWorker';
 
 import App from './App';
 import configureStore from './store/configureStore';
-import { setCurrentUser } from './actions/authActions';
-import jwt from 'jsonwebtoken'
 import reducers from './reducers/index'
 
 
@@ -17,7 +15,6 @@ const store = configureStore(reducers,history);
 console.log('localStorage',localStorage.jwtToken)
 if(localStorage.jwtToken){
 
-    store.dispatch(setCurrentUser(jwt.decode(localStorage.jwtToken)))
 
 }
 ReactDOM.render(

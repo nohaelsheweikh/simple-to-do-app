@@ -38,7 +38,7 @@ export const StyledInput= styled.input`
   border: solid 1px #dbdbdb;
   border-radius: 3px;
   color: #262626;
-  width:80%
+  width:68%
   margin:2%
   padding: 9px 33px;
   border-radius: 3px;
@@ -58,7 +58,7 @@ export const StyledTextArea= styled.textarea`
   border: solid 1px #dbdbdb;
   border-radius: 3px;
   color: #262626;
-  width:80%
+  width:68%
   margin:2%
   padding: 9px 33px;
   border-radius: 3px;

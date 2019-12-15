@@ -2,24 +2,33 @@
   "data": [
     {
       "id": 1,
-      "category": {
-        "name": "sport"
-      },
-      "task_name": "tennis"
+      "category": "Sport",
+      "tasks": [
+        {
+          "date": "dkjfsldf",
+          "name": "go to the club"
+        }
+      ]
     },
     {
-      "id": 2,
-      "category": {
-        "name": "work"
-      },
-      "task_name": "dev"
+      "id": 1,
+      "category": "Games",
+      "tasks": [
+        {
+          "date": "task 2",
+          "name": "go to the gym"
+        }
+      ]
     },
     {
-      "id": 1576342806617.201,
-      "category": {
-        "name": "Shopping"
-      },
-      "task_name": "milk,eggs"
+      "id": 1576422503828.5156,
+      "category": "shopping",
+      "tasks": [
+        {
+          "date": "Sun Dec 15 2019 17:08:23 GMT+0200 (Eastern European Standard Time)",
+          "name": "new"
+        }
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { configure,mount } from 'enzyme';
-import LoginPage from '../pages/Login/index';
+import LoginForm from '../pages/Login/LoginForm';
 import { expect } from 'chai';
 import Adapter from 'enzyme-adapter-react-16'
 import configureMockStore from "redux-mock-store";
@@ -18,7 +18,7 @@ describe('<Login>', () => {
   it('has a login button', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <LoginPage />
+        <LoginForm />
       </Provider>
     )
     expect(wrapper.containsMatchingElement(<StyledButton >Login</StyledButton>)).to.be.true;
@@ -27,7 +27,7 @@ describe('<Login>', () => {
   it('has a username input field', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <LoginPage />
+        <LoginForm />
       </Provider>
     )
     expect(wrapper.containsMatchingElement(<input type="text" />)).to.be.true;
@@ -36,7 +36,7 @@ describe('<Login>', () => {
   it('has a password input field', () => {
     const wrapper = mount(
       <Provider store={store}>
-        <LoginPage />
+        <LoginForm />
       </Provider>
     )
     expect(wrapper.containsMatchingElement(<input type="password" />)).to.be.true;
@@ -47,7 +47,7 @@ describe('<Login>', () => {
     const password = '54321';
     const wrapper = mount(
       <Provider store={store}>
-        <LoginPage handleLogin={(state:any) => {
+        <LoginForm handleLogin={(state:any) => {
           expect(state.usernamel).to.be.equal(username);
           expect(state.password).to.be.equal(password);
           }}/>

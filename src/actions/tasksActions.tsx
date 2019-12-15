@@ -13,20 +13,27 @@ export function isLoading(isLoading: boolean) {
 
   export const handleCreateTask = (category:string,details:Text) => {
       let id = Date.now() + Math.random()
-    let jsonData={
-      "id":id,
-      "category":{
-         "name":category
-      },
-      "task_name":details
-   }
+      let newDate =  Date()
+      newDate.toString()
+      let jsonData=
+        {
+          "id":id,
+          "category": category,
+          "tasks": [
+            {
+              "date": newDate,
+              "name": details
+            }
+          ]
+        }
+      
     return async(dispatch:any) => {
       const response = await axios.post( 'http://localhost:3001/data',jsonData) 
       if(response.status === 201){
         dispatch({
           type:ActionTypes.CREATE_TASKS_SUCCESS, 
         });
-      history.push('/main')
+      history.push('/')
     }else{
       dispatch({
           type:ActionTypes.CREATE_TASKS_HAS_ERROR,

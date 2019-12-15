@@ -2,24 +2,30 @@ import styled from "styled-components";
 
 
   export const ProfileContainer = styled.div`
-        max-width: 1010px;
-        width: 100%;
-        margin: 20px auto;
+  width: 100%;
+  display:block;
+  align-items: center;
+  flex-wrap: wrap;
+
     `;
 export const ProfileDetails = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:center
+
+
 `;
 export const ProfileDetailsLeft = styled.div`
-  margin-right: 40px;
+  margin-right: 5%;
   width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align:left
 `;
 export const ProfileDetailsRight = styled.div`
   display: flex;
-  align-items: end;
-  justify-content: center;
   flex-direction: column;
 `;
 export const ProfileImage = styled.img`
@@ -28,9 +34,10 @@ export const ProfileImage = styled.img`
   border: 1px solid #ccc;
   padding: 5px;
 `;
-export const ProfileDetailsUsername = styled.div`
+export const ProfileDetailsHeaders = styled.div`
   display: flex;
   align-items: center;
+  text-align:center
   justify-content: center;
 `;
 
