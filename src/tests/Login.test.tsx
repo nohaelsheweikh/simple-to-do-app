@@ -53,7 +53,7 @@ describe('<Login>', () => {
           }}/>
     </Provider>
     );
-
+    
     wrapper.find('button').simulate('click');
 
 

@@ -6,7 +6,7 @@ import {StyledError} from '../../styles/login'
 
  interface MyProps {
     login: (username:string,password:string) => void;
-    error:string
+    // error:string
 }
 
 interface state {
@@ -38,14 +38,14 @@ class LoginPage extends React.Component<MyProps,state> {
                     onChange={this.onChange} 
                    
                 />   
-                <StyledError>{this.props.error}</StyledError>
+                {/* <StyledError>{this.props.error}</StyledError> */}
             </div>
      )}
 
 }
 
 const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
-    error: state.auth.error
+    // error: state.auth.error
 });
 const dispatchProps = {
     login: login,

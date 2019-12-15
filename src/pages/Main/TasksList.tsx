@@ -1,43 +1,36 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import  {fetchTasks,deleteTask} from "../../actions/tasksActions";
-import Header from "../Header"
-import Main from "./TaskCard"
-interface MyProps {
-    fetchTasks: () => void;
-    deleteTask:(task:any)=>void
-    tasks:any
-}
+import React from "react";
+import * as styles from "../../styles/card"
+import {
+  CreateTaskButton,
+  CreateTaskButtonWrapper,
+  Container,DeleteTaskButton,DeleteWrapper} from "../../styles/tasks"
+import history from "../../utils/history"
 
+const TasksList = (props:any) =>{
+  if(!props.tasksList){
+    return <h4>is loading</h4>
+  }
+  return (
+    <Container>
+       <CreateTaskButtonWrapper>
+         <CreateTaskButton onClick={() => history.push('./main/create')}>Create Task</CreateTaskButton>
+      </CreateTaskButtonWrapper> 
+    <styles.CardContainer>  
+     {
+       props.tasksList.map((task:any, index:number) => {
+          return  (
+          <styles.Wrapper key={index} >
+            <styles.Title>{task.category.name}</styles.Title>
+            <styles.Description>{task.task_name}</styles.Description>
+            <DeleteWrapper>
+             <DeleteTaskButton onClick={() => props.deleteTask(task.id)}>Delete Task</DeleteTaskButton>
+            </DeleteWrapper>
+          </styles.Wrapper>
+     
+       )})}
+    </styles.CardContainer>
+  </Container>
+  )
+};
 
-class TasksList extends React.Component<MyProps> {
-
-   componentDidMount(){
-       this.props.fetchTasks()
-   }
-    render() {
-       
-        return (
-            <>
-            <Header/>
-                 <Main
-                    tasksList={this.props.tasks}
-                    deleteTask={this.props.deleteTask}
-                />
-            </>
-     )}
-
-}
-const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
-    tasks:state.tasksReducer.tasks,
-});
-const dispatchProps = {
-    fetchTasks:fetchTasks,
-    deleteTask:deleteTask
-  };
-  
-export default connect(
-    mapStateToProps,
-    dispatchProps
-)(TasksList)
-
+export default TasksList;

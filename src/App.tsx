@@ -6,7 +6,7 @@ import history from "./utils/history"
 
 const Login = lazy (() => import('./pages/Login/index'))
 const Profile = lazy (() => import('./pages/Profile/Profile'))
-const Main = lazy (() => import('./pages/Main/TasksList'))
+const Main = lazy (() => import('./pages/Main/TasksPage'))
 const Create = lazy (() => import('./pages/Main/CreateTask'))
 
 
