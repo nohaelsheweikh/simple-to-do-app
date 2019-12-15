@@ -13,7 +13,7 @@ export function isLoading(isLoading: boolean) {
 
 
   export const handleCreateTask = (category:string,details:Text) => {
-      let id = Date.now() + Math.random()
+      let id = Date.now() + Math.floor(Math.random())
       let newDate =  moment(new Date()).format('DD-MM-YYYY')
       let jsonData=
         {
@@ -85,7 +85,6 @@ export function isLoading(isLoading: boolean) {
 
 
 export const fetchTasksByDate = (Date:any) => {  
-  console.log('date',Date)
   let date = moment(Date).format('DD-MM-YYYY')
   return async(dispatch:any) => {
       dispatch(isLoading(true));
