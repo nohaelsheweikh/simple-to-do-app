@@ -2,7 +2,6 @@ image: node:6
   stages:
   - install
   - test
-  - deploy
 prodInstall:
   stage: install
   script:
