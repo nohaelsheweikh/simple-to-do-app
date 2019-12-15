@@ -5,13 +5,11 @@ stages:
 prodInstall:
   stage: install
   script:
-    - npm install --production
+    - npm install 
   artifacts:
     untracked: true
 unitTesting:
   stage: test
-  dependencies:
-    - prodInstall
   script:
     - npm install
     - npm test
