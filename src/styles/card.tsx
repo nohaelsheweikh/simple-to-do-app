@@ -19,25 +19,27 @@ export const Title = styled.h1`
   margin: 2rem;
   color:  "white" ;
   text-align: center;
+  text-shadow: 1px 1px black;
+
 `;
+var hexArray = ['#FF7EB9','#7AFCFF','#FEFF9B', '#FFF740']
+var randomColor  = hexArray[Math.floor(Math.random()*hexArray.length)];
+
 export const Card = styled.div`
   position:relative
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 250px;
-  background-color: #c4b2a9;
+  background-color:${randomColor} 
   border-radius: 4px;
   padding: 1rem;
   margin: 1rem;
-
-  a{
-    
-  }
+  box-shadow: 10px 10px grey;
 `;
 
 export const Description = styled.p`
-  color: white;
+  color: #1700FF;
   text-align: center;
 `;
 
