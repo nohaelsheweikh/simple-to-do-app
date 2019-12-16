@@ -40,25 +40,76 @@ export function isLoading(isLoading: boolean) {
           payload: "creating error"
       });
    }
+  } 
+}
+  export const handleUpdateTask = (id:any,task:Text) => {
+    console.log('page',id)
+
+    return async(dispatch:any) => {
+    // let newDate =  moment(new Date()).format('DD-MM-YYYY')
+   let newTask = {
+
+     "date": moment(new Date()).format('DD-MM-YYYY'),
+     "name": task
+   }
+    const response = await axios.get( `http://localhost:3001/data/${id}`) 
+    console.log('responase',response.data)
+    if(response.status === 200){
+      let data = response.data
+      data.tasks.push(newTask)
+      console.log("data", data);
+    
+const res = await axios.put( `http://localhost:3001/data/${id}`,data) 
+
+if(res.status === 200){
+  dispatch({
+    type:ActionTypes.UPDATE_TASK_SUCCESS, 
+  });
+history.push('/')
+}
+else{
+  dispatch({
+      type:ActionTypes.UPDATE_TASK_HAS_ERROR,
+      payload: "update error"
+  });
+}
+}
+  else{
+    dispatch({
+      type:ActionTypes.UPDATE_TASK_HAS_ERROR,
+      payload: "creating error"
+    });
+  }
+} 
+
   }
   
-  }
-
-  export const deleteTask = (id:any) => {  
+  export const deleteTask = (categoryId:number,id:number) => {  
     return async(dispatch:any) => {
-        const response = await axios.delete( `http://localhost:3001/data/${id}`,id) 
-        if(response.status === 200){
-        dispatch({
-            type:ActionTypes.DELETE_TASKS_SUCCESS,
-           
-        });
-        dispatch(fetchTasks())
-     }else{
+      // let newDate =  moment(new Date()).format('DD-MM-YYYY')
+     
+      const response = await axios.get( `http://localhost:3001/data/${categoryId}`) 
+      console.log('responase',response.data)
+      if(response.status === 200){
+        let data = response.data
+        data.tasks.pop(id)
+        console.log("data", data);
+      
+  const res = await axios.put( `http://localhost:3001/data/${categoryId}`,data) 
+  
+  if(res.status === 200){
+    dispatch({
+      type:ActionTypes.DELETE_TASKS_SUCCESS, 
+    });
+      dispatch(fetchTasks())
+    }
+      else{
         dispatch({
             type:ActionTypes.DELETE_TASKS_HAS_ERROR,
-            payload: "deleting error"
+            payload: "update error"
         });
-     }
+      }
+  }
     }
 };
 

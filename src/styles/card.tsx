@@ -26,7 +26,6 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 250px;
-  height: 250px;
   background-color: #c4b2a9;
   border-radius: 4px;
   padding: 1rem;
@@ -49,7 +48,7 @@ padding:3%
 
 
 
-export const DeleteTaskButton = styled.div`
+export const ADDTaskButton = styled.div`
   
     color: #f32013;
     cursor: pointer;
@@ -58,6 +57,20 @@ export const DeleteTaskButton = styled.div`
     position: absolute;
     top: 10px;
     right: 10px
+
+
+ 
+`;
+
+
+export const DeleteTaskButton = styled.div`
+  
+    color: #f32013;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 2em;
+    display:flex
+    left: 10px
 
 
  

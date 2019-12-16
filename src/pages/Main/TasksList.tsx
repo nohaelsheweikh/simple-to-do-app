@@ -8,8 +8,7 @@ import {
     SearchWrapper
   } from "../../styles/tasks"
 import history from "../../utils/history"
-import { IoMdTrash} from 'react-icons/io';
-import _ from 'lodash';
+import { IoMdTrash,IoMdAdd} from 'react-icons/io';
 
   
 
@@ -38,23 +37,32 @@ const TasksList = (props:any) =>{
       <CardsListWrapper>
         <styles.CardContainer>  
         {
-          tasks||props.tasksList.map((task:any, index:number) => {
+          tasks||props.tasksList.map((category:any, index:number) => {
+            
               return  (
-              <styles.Card key={index}>
-                <styles.DeleteTaskButton onClick={() => props.deleteTask(task.id)}>
-                    <IoMdTrash       
-                    />
-                </styles.DeleteTaskButton>
-                  <styles.Title>{task.category}</styles.Title>
-                      {task.tasks.map((task:any, index:number) => {
+              <styles.Card key={index} >
+                <styles.ADDTaskButton>
+                  <IoMdAdd 
+                   color={'green'} 
+                   onClick={() =>history.push(`/task/${category.id}`)}
+                   />
+                </styles.ADDTaskButton>
+                  <styles.Title>{category.category}</styles.Title>
+                      {category.tasks.map((task:any, index:number) => {
                     return(
                         <div key={index}>
-                          <styles.Date>{task.date}</styles.Date>
+                         
+                          <styles.Date>
+                          <IoMdTrash 
+                          color={"red"}
+                          onClick={() => props.deleteTask(category.id,task.id)}      
+                            />{task.date}</styles.Date>
                           <styles.Description>{task.name}</styles.Description>
                       </div>
 
                       )}
                     )}
+                
               </styles.Card>
           )})}
         </styles.CardContainer>

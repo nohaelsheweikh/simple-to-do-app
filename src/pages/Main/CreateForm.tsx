@@ -6,7 +6,7 @@ const CreateForm = (props:any) => {
      
         <form onSubmit={props.onSubmit}>
           <StyledLogin>
-             <h2>Create Task</h2>
+             <h2>Create Category</h2>
             <StyledInput type="text" placeholder="Category" onChange={props.onChange} name="category"/>
             <StyledTextArea rows={20} cols={5} placeholder="Details" onChange={props.onChange} name="details" />
             <StyledButton>Save</StyledButton>

@@ -3,10 +3,12 @@ import {connect} from 'react-redux';
 import  {fetchTasks,deleteTask,fetchTasksByDate} from "../../actions/tasksActions";
 import Header from "../Header"
 import TasksList from "./TasksList"
+
 interface MyProps {
     fetchTasks: () => void;
     fetchTasksByDate:(Date:any)=> void;
-    deleteTask:(task:any)=>void
+    deleteTask:(categoryId:number,id:number)=>void,
+   
     tasks:any
 }
 
@@ -51,7 +53,7 @@ const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
 const dispatchProps = {
     fetchTasks:fetchTasks,
     fetchTasksByDate:fetchTasksByDate,
-    deleteTask:deleteTask
+    deleteTask:deleteTask,
   };
   
 export default connect(

@@ -1,5 +1,5 @@
 import React, {lazy, Suspense} from 'react';
-import { Router, Route, Switch,Redirect} from "react-router-dom";
+import { Router, Route, Switch,Redirect,} from "react-router-dom";
 import history from "./utils/history"
 
 
@@ -8,6 +8,8 @@ const Login = lazy (() => import('./pages/Login/index'))
 const Profile = lazy (() => import('./pages/Profile/Profile'))
 const Main = lazy (() => import('./pages/Main/TasksPage'))
 const Create = lazy (() => import('./pages/Main/CreateTask'))
+const Update = lazy (() => import('./pages/Main/UpdateTask'))
+
 
 
 const App = () => {
@@ -32,6 +34,8 @@ const App = () => {
                             !localStorage.jwtToken ? (
                             <Redirect to="/login"/>)
                              : (  <Create/>) )}/>   
+                        <Route path = "/task/:id"render={(props) => <Update {...props} />} />
+
                     </Switch>
                 </Suspense>
             <Redirect exact from="/" to="login" />

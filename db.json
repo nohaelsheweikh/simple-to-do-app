@@ -5,18 +5,31 @@
       "category": "Sport",
       "tasks": [
         {
+          "id": 1,
           "date": "12-12-2019",
           "name": "go to the club"
+        },
+        {
+          "date": "16-12-2019",
+          "name": "tennis"
+        },
+        {
+          "date": "16-12-2019",
+          "name": "new"
         }
       ]
     },
     {
-      "id": 1,
+      "id": 2,
       "category": "Games",
       "tasks": [
         {
           "date": "14-12-2019",
           "name": "go to the gym"
+        },
+        {
+          "date": "16-12-2019",
+          "name": "new game"
         }
       ]
     }

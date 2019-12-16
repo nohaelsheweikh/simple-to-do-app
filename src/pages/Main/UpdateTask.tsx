@@ -1,24 +1,26 @@
-import React from 'react';
 import {connect} from 'react-redux';
-import  {handleCreateTask} from "../../actions/tasksActions";
-import CreateForm from './CreateForm'
+
+import  {handleUpdateTask} from "../../actions/tasksActions";
+import UpdateForm from './UpdateTaskForm'
 import Header from '../Header'
+import * as React from "react";
+
 
  interface MyProps {
-    handleCreateTask: (category:string,details:Text) => Promise<any> ;
+    handleUpdateTask:(id:number,task:any)=>void ;
+    
 }
 
 interface state {
-    category: string;
     details: Text;
-   
+    route:any
 }
-class LoginPage extends React.Component<MyProps,state> {
+class UpdatePage extends React.Component<MyProps,state> {
    
-
-  
-   
-
+componentDidMount(){
+    console.log(this.props)
+    this.setState({route:this.props})
+}
     onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         this.setState({
             ...this.state,
@@ -28,33 +30,36 @@ class LoginPage extends React.Component<MyProps,state> {
    
     onSubmit  = (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault();
+        let currentId= this.state.route.match.params.id
         
-       this.props.handleCreateTask(this.state.category, this.state.details);
+       this.props.handleUpdateTask(currentId, this.state.details);
 
     };
 
     render() {
+      
+
+        
         return (
             <div>
                 <Header/>
-                <CreateForm
+                <UpdateForm
                     onSubmit={this.onSubmit}
-                    onChange={this.onChange}      
+                    onChange={this.onChange}  
+
                 />   
             </div>
      )}
 
 }
 
-const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
-    isAuthenticated: state.isAuthenticated,
-    error: state.error
-});
+
 const dispatchProps = {
-    handleCreateTask: handleCreateTask,
+    handleUpdateTask: handleUpdateTask,
+
   };
   
 export default connect(
-    mapStateToProps,
+    null,
     dispatchProps
-)(LoginPage);
+)(UpdatePage);
