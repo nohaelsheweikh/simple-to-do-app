@@ -40,7 +40,7 @@ exports[`TaskCards component renders a list of Cards renders correctly 1`] = `
     }
   >
     <h4>
-      is loading
+      loading....
     </h4>
   </TasksList>
 </Provider>
