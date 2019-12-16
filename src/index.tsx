@@ -12,7 +12,6 @@ import reducers from './reducers/index'
 
 
 const store = configureStore(reducers,history);
-console.log('localStorage',localStorage.jwtToken)
 if(localStorage.jwtToken){
 
 

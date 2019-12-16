@@ -18,7 +18,6 @@ interface state {
 class UpdatePage extends React.Component<MyProps,state> {
    
 componentDidMount(){
-    console.log(this.props)
     this.setState({route:this.props})
 }
     onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -32,7 +31,7 @@ componentDidMount(){
         e.preventDefault();
         let currentId= this.state.route.match.params.id
         
-       this.props.handleUpdateTask(currentId, this.state.details);
+       this.props.handleUpdateTask(currentId,this.state.details);
 
     };
 

@@ -12,7 +12,7 @@ export function isLoading(isLoading: boolean) {
   }
 
 
-  export const handleCreateTask = (category:string,details:Text) => {
+  export const handleCreateCategory = (category:string,details:Text) => {
       let id = Date.now() + Math.floor(Math.random())
       let newDate =  moment(new Date()).format('DD-MM-YYYY')
       let jsonData=
@@ -34,7 +34,8 @@ export function isLoading(isLoading: boolean) {
           type:ActionTypes.CREATE_TASKS_SUCCESS, 
         });
       history.push('/')
-    }else{
+    }
+    else{
       dispatch({
           type:ActionTypes.CREATE_TASKS_HAS_ERROR,
           payload: "creating error"
@@ -42,9 +43,8 @@ export function isLoading(isLoading: boolean) {
    }
   } 
 }
-  export const handleUpdateTask = (id:any,task:Text) => {
-    console.log('page',id)
 
+  export const handleUpdateTask = (id:any,task:Text) => {
     return async(dispatch:any) => {
     // let newDate =  moment(new Date()).format('DD-MM-YYYY')
    let newTask = {
@@ -53,36 +53,24 @@ export function isLoading(isLoading: boolean) {
      "name": task
    }
     const response = await axios.get( `http://localhost:3001/data/${id}`) 
-    console.log('responase',response.data)
     if(response.status === 200){
       let data = response.data
       data.tasks.push(newTask)
-      console.log("data", data);
-    
-const res = await axios.put( `http://localhost:3001/data/${id}`,data) 
-
-if(res.status === 200){
-  dispatch({
-    type:ActionTypes.UPDATE_TASK_SUCCESS, 
-  });
-history.push('/')
-}
-else{
-  dispatch({
-      type:ActionTypes.UPDATE_TASK_HAS_ERROR,
-      payload: "update error"
-  });
-}
-}
-  else{
-    dispatch({
-      type:ActionTypes.UPDATE_TASK_HAS_ERROR,
-      payload: "creating error"
-    });
+      const res = await axios.put( `http://localhost:3001/data/${id}`,data) 
+      if(res.status === 200){
+        dispatch({
+          type:ActionTypes.UPDATE_TASK_SUCCESS, 
+        });
+      history.push('/')
   }
-} 
-
-  }
+  }else{
+      dispatch({
+        type:ActionTypes.UPDATE_TASK_HAS_ERROR,
+        payload: "creating error"
+      });
+    }
+  } 
+}
   
   export const deleteTask = (categoryId:number,id:number) => {  
     return async(dispatch:any) => {
@@ -95,23 +83,17 @@ else{
         data.tasks.pop(id)
         console.log("data", data);
       
-  const res = await axios.put( `http://localhost:3001/data/${categoryId}`,data) 
+      const res = await axios.put( `http://localhost:3001/data/${categoryId}`,data) 
   
-  if(res.status === 200){
-    dispatch({
-      type:ActionTypes.DELETE_TASKS_SUCCESS, 
-    });
-      dispatch(fetchTasks())
-    }
-      else{
-        dispatch({
-            type:ActionTypes.DELETE_TASKS_HAS_ERROR,
-            payload: "update error"
-        });
+      if(res.status === 200){
+          dispatch({
+            type:ActionTypes.DELETE_TASKS_SUCCESS, 
+          });
+            dispatch(fetchTasks())
+        }
       }
-  }
     }
-};
+  };
 
   export const fetchTasks = () => {  
     return async(dispatch:any) => {
@@ -140,7 +122,6 @@ export const fetchTasksByDate = (Date:any) => {
   return async(dispatch:any) => {
       dispatch(isLoading(true));
       const response = await axios.get( `http://localhost:3001/data/?q=${date}`) 
-      console.log('data',response)
       if(response.status === 200){
       dispatch({
           type:ActionTypes.FETCH_TASKS_BY_DATE_SUCCESS,

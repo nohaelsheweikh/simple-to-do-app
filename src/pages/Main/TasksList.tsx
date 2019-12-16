@@ -22,9 +22,9 @@ const TasksList = (props:any) =>{
   }
   return (
     <Container>
-       <styles.CreateTaskButtonWrapper>
-         <styles.CreateTaskButton onClick={() => history.push('./create')}>Create Task</styles.CreateTaskButton>
-       </styles.CreateTaskButtonWrapper> 
+       <styles.CreateButtonWrapper>
+         <styles.CreateButton onClick={() => history.push('./create')}>Create Category</styles.CreateButton>
+       </styles.CreateButtonWrapper> 
 
       
           <form onSubmit={props.fetchTasksByDate}>

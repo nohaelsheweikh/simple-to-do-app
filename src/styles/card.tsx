@@ -41,12 +41,25 @@ export const Description = styled.p`
   text-align: center;
 `;
 
-export const CreateTaskButtonWrapper = styled.div`
+export const CreateButtonWrapper = styled.div`
 padding:3%
 `
 
 
-
+export const CreateButton = styled.div`
+  background-color: #0088CC;
+  text-align:center
+  border: 1px solid #dbdbdb;
+  color: #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 5px 9px;
+  text-transform: capitalize;
+  font-size: 14px;
+  margin-left: 20px;
+  width:100px
+`;
 
 export const ADDTaskButton = styled.div`
   
@@ -75,17 +88,4 @@ export const DeleteTaskButton = styled.div`
 
  
 `;
-export const CreateTaskButton = styled.div`
-  background-color: #0088CC;
-  text-align:center
-  border: 1px solid #dbdbdb;
-  color: #FFFFFF;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 5px 9px;
-  text-transform: capitalize;
-  font-size: 14px;
-  margin-left: 20px;
-  width:100px
-`;
+

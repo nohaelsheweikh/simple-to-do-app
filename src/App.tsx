@@ -4,7 +4,7 @@ import history from "./utils/history"
 
 
 
-const Login = lazy (() => import('./pages/Login/index'))
+const Login = lazy (() => import('./pages/Login/LoginPage'))
 const Profile = lazy (() => import('./pages/Profile/Profile'))
 const Main = lazy (() => import('./pages/Main/TasksPage'))
 const Create = lazy (() => import('./pages/Main/CreateTask'))
@@ -38,7 +38,7 @@ const App = () => {
 
                     </Switch>
                 </Suspense>
-            <Redirect exact from="/" to="login" />
+                <Redirect exact from="/" to="login" />
             </Router>
     )
 };

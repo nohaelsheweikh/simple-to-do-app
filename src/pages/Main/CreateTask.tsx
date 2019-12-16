@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import  {handleCreateTask} from "../../actions/tasksActions";
+import  {handleCreateCategory} from "../../actions/tasksActions";
 import CreateForm from './CreateForm'
 import Header from '../Header'
 
  interface MyProps {
-    handleCreateTask: (category:string,details:Text) => Promise<any> ;
+    handleCreateCategory: (category:string,details:Text) => Promise<any> ;
 }
 
 interface state {
@@ -29,7 +29,7 @@ class LoginPage extends React.Component<MyProps,state> {
     onSubmit  = (e: React.FormEvent<HTMLInputElement>) => {
         e.preventDefault();
         
-       this.props.handleCreateTask(this.state.category, this.state.details);
+       this.props.handleCreateCategory(this.state.category, this.state.details);
 
     };
 
@@ -51,7 +51,7 @@ const mapStateToProps = ( state: any, ownProps: any = {} ) => ({
     error: state.error
 });
 const dispatchProps = {
-    handleCreateTask: handleCreateTask,
+    handleCreateCategory: handleCreateCategory,
   };
   
 export default connect(
