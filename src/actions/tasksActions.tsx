@@ -31,13 +31,13 @@ export function isLoading(isLoading: boolean) {
       const response = await axios.post( 'http://localhost:3001/data',jsonData) 
       if(response.status === 201){
         dispatch({
-          type:ActionTypes.CREATE_TASKS_SUCCESS, 
+          type:ActionTypes.CREATE_CATEGORY_SUCCESS, 
         });
       history.push('/')
     }
     else{
       dispatch({
-          type:ActionTypes.CREATE_TASKS_HAS_ERROR,
+          type:ActionTypes.CREATE_CATEGORY_HAS_ERROR,
           payload: "creating error"
       });
    }
@@ -46,12 +46,11 @@ export function isLoading(isLoading: boolean) {
 
   export const handleUpdateTask = (id:any,task:Text) => {
     return async(dispatch:any) => {
-    // let newDate =  moment(new Date()).format('DD-MM-YYYY')
-   let newTask = {
+    let newTask = {
 
-     "date": moment(new Date()).format('DD-MM-YYYY'),
-     "name": task
-   }
+      "date": moment(new Date()).format('DD-MM-YYYY'),
+      "name": task
+    }
     const response = await axios.get( `http://localhost:3001/data/${id}`) 
     if(response.status === 200){
       let data = response.data
@@ -74,7 +73,6 @@ export function isLoading(isLoading: boolean) {
   
   export const deleteTask = (categoryId:number,id:number) => {  
     return async(dispatch:any) => {
-      // let newDate =  moment(new Date()).format('DD-MM-YYYY')
      
       const response = await axios.get( `http://localhost:3001/data/${categoryId}`) 
       console.log('responase',response.data)
