@@ -64,7 +64,6 @@ export const CreateButton = styled.div`
 `;
 
 export const ADDTaskButton = styled.div`
-  
     color: #f32013;
     cursor: pointer;
     font-weight: 600;
@@ -72,9 +71,6 @@ export const ADDTaskButton = styled.div`
     position: absolute;
     top: 10px;
     right: 10px
-
-
- 
 `;
 
 
